@@ -91,12 +91,17 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route('/logout')
+@app.route("/logout")
 def logout():
-      # remove user from session cookies
-      flash("You've been logged out")
-      session.pop("user")
-      return redirect(url_for("login"))
+    # remove user from session cookies
+    flash("You've been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
+@app.route("/add_task")
+def add_task():
+    return render_template("add_task.html")
 
 
 if __name__ == "__main__":
